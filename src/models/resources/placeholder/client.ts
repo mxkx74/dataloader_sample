@@ -1,35 +1,30 @@
+import { fetcher } from "@/lib/fetcher";
 import {
   placeholderListSchema,
   placeholderSchema,
-  type Placeholder,
   type PlaceholderFindAllParams,
   type PlaceholderFindByIdParams,
 } from "./schema";
+import type { ResultAsync } from "neverthrow";
+import type { AppError } from "@/lib/errors";
+import type { Placeholder, PlaceholderList } from "./schema";
 
-const BASE_URL = "https://jsonplaceholder.typicode.com";
+const BASE_URL =
+  process.env["NEXT_PUBLIC_API_BASE_URL"] ??
+  "https://jsonplaceholder.typicode.com";
 
-export const findAllPlaceholders = async (
+export const findAllPlaceholders = (
   params: PlaceholderFindAllParams = {}
-): Promise<Placeholder[]> => {
+): ResultAsync<PlaceholderList, AppError> => {
   const url = new URL(`${BASE_URL}/todos`);
   if (params.limit !== undefined) {
     url.searchParams.set("_limit", String(params.limit));
   }
-  const response = await fetch(url.toString());
-  if (!response.ok) {
-    throw new Error(`Failed to fetch placeholders: ${response.status}`);
-  }
-  const json: unknown = await response.json();
-  return placeholderListSchema.parse(json);
+  return fetcher(url.toString(), placeholderListSchema);
 };
 
-export const findPlaceholderById = async (
+export const findPlaceholderById = (
   params: PlaceholderFindByIdParams
-): Promise<Placeholder> => {
-  const response = await fetch(`${BASE_URL}/todos/${params.id}`);
-  if (!response.ok) {
-    throw new Error(`Failed to fetch placeholder ${params.id}: ${response.status}`);
-  }
-  const json: unknown = await response.json();
-  return placeholderSchema.parse(json);
+): ResultAsync<Placeholder, AppError> => {
+  return fetcher(`${BASE_URL}/todos/${params.id}`, placeholderSchema);
 };

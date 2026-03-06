@@ -3,13 +3,8 @@ import { selectPlaceholderRows } from "../../adapter/selector";
 import { PlaceholderListPresentational } from "./Presentational";
 
 export async function PlaceholderListContainer() {
-  const result = await findAllPlaceholders({});
-
-  if (result.isErr()) {
-    throw result.error;
-  }
-
-  const rows = selectPlaceholderRows(result.value);
+  const result = await findAllPlaceholders({}, { throwOnError: true });
+  const rows = selectPlaceholderRows(result._unsafeUnwrap());
 
   return <PlaceholderListPresentational rows={rows} />;
 }

@@ -1,6 +1,5 @@
 import { errAsync, okAsync, ResultAsync } from "neverthrow";
 import { findAllPlaceholders as findAllPlaceholdersClient } from "@/models/resources/placeholder/client";
-import { safeAsync } from "@/lib/neverThrowUtils";
 import { withInteractorOption } from "@/lib/withInteractorOption";
 import {
   placeholderFindAllInputSchema,
@@ -18,7 +17,7 @@ const findAllPlaceholdersInteractor = (
     return errAsync(createValidationError(parsed.error.message));
   }
 
-  return safeAsync(findAllPlaceholdersClient({ limit: parsed.data.limit })).andThen(
+  return findAllPlaceholdersClient({ limit: parsed.data.limit }).andThen(
     (data) => {
       const outputParsed = placeholderFindAllOutputSchema.safeParse(data);
       if (!outputParsed.success) {
