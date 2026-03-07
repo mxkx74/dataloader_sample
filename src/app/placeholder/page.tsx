@@ -2,8 +2,6 @@ import { Suspense } from "react";
 import { PlaceholderListContainer } from "@/feature/placeholder/components";
 import { Skeleton } from "@/components/ui/skeleton";
 
-export const dynamic = "force-dynamic";
-
 export const metadata = {
   title: "DataLoader サンプル",
   description: "DataLoader による効率的なバッチ取得のサンプルページ",

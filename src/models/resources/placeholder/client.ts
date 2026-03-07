@@ -5,8 +5,6 @@ import {
   type PlaceholderFindAllParams,
   type PlaceholderFindByIdParams,
 } from "./schema";
-import type { ResultAsync } from "neverthrow";
-import type { AppError } from "@/lib/errors";
 import type { Placeholder, PlaceholderList } from "./schema";
 
 const BASE_URL =
@@ -14,17 +12,23 @@ const BASE_URL =
   "https://jsonplaceholder.typicode.com";
 
 export const findAllPlaceholders = (
-  params: PlaceholderFindAllParams = {}
-): ResultAsync<PlaceholderList, AppError> => {
+  params: PlaceholderFindAllParams = {},
+): Promise<PlaceholderList> => {
   const url = new URL(`${BASE_URL}/todos`);
   if (params.limit !== undefined) {
     url.searchParams.set("_limit", String(params.limit));
   }
-  return fetcher(url.toString(), placeholderListSchema);
+  return fetcher<PlaceholderList>(url.toString(), {
+    method: "GET",
+    responseSchema: placeholderListSchema,
+  });
 };
 
 export const findPlaceholderById = (
-  params: PlaceholderFindByIdParams
-): ResultAsync<Placeholder, AppError> => {
-  return fetcher(`${BASE_URL}/todos/${params.id}`, placeholderSchema);
+  params: PlaceholderFindByIdParams,
+): Promise<Placeholder> => {
+  return fetcher<Placeholder>(`${BASE_URL}/todos/${params.id}`, {
+    method: "GET",
+    responseSchema: placeholderSchema,
+  });
 };

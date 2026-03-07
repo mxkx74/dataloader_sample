@@ -1,3 +1,10 @@
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export const cn = (...inputs: ClassValue[]) => {
+  return twMerge(clsx(inputs));
+};
+
 /**
  * 提供年月をフォーマットする関数
  */
@@ -17,5 +24,5 @@ export function isValidYearMonth(yearMonth: string) {
  * 半角数字以外の文字を削除する関数
  */
 export function sanitizeToNumeric(value: string) {
-  return value.replace(/[^0-9]/g, '');
+  return value.replace(/[^0-9]/g, "");
 }
