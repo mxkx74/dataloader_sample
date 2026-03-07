@@ -26,9 +26,11 @@ export const findAllPosts = (
 export const findManyPostsByIds = (
   params: PostFindManyByIdsParams,
 ): Promise<PostList> => {
-  const url = new URL(`${BASE_URL}/posts`);
-  params.ids.forEach((id) => url.searchParams.append("id", String(id)));
-  return fetcher<PostList>(url.toString(), {
+  const queryString = params.ids.reduce(
+    (acc, id, index) => (index === 0 ? `id=${id}` : `${acc}&id=${id}`),
+    "",
+  );
+  return fetcher<PostList>(`${BASE_URL}/posts?${queryString}`, {
     method: "GET",
     responseSchema: postListSchema,
   });

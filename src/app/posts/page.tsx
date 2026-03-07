@@ -10,7 +10,7 @@ export const metadata = {
 function PostListSkeleton() {
   return (
     <div className="space-y-4">
-      {Array.from({ length: 5 }, (_, skeletonIndex) => (
+      {Array.from({ length: 10 }, (_, skeletonIndex) => (
         <Skeleton key={skeletonIndex} className="h-32 w-full" />
       ))}
     </div>
