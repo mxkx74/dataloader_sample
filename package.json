@@ -11,6 +11,7 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@conform-to/react": "^1.17.1",
     "@radix-ui/react-slot": "^1.2.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -18,8 +19,8 @@
     "lucide-react": "^0.577.0",
     "neverthrow": "^8.2.0",
     "next": "16.1.6",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "tailwind-merge": "^3.5.0",
     "zod": "^4.3.6"
   },
@@ -33,6 +34,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^5.1.4",
+    "babel-plugin-react-compiler": "^1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "jsdom": "^28.1.0",
