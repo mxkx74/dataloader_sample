@@ -5,10 +5,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
-import type { PostCardItem } from "../../adapter/selector";
+import type { selectPostCardItem } from "../../adapter/selector";
 
 type Props = {
-  post: PostCardItem;
+  post: ReturnType<typeof selectPostCardItem>;
 };
 
 export function PostCardPresentational({ post }: Props) {

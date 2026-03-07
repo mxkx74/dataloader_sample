@@ -3,32 +3,15 @@ import type {
   PostFindByIdOutputPort,
 } from "../use-case/queries/boundary";
 
-export type PostListItem = {
-  id: number;
-  title: string;
-  userId: number;
-};
 
-export type PostCardItem = {
-  id: number;
-  title: string;
-  body: string;
-  userId: number;
-};
-
-export const selectPostListItems = (
-  data: PostFindAllOutputPort,
-): PostListItem[] => {
+export const selectPostListItems = (data: PostFindAllOutputPort) => {
   return data.map((post) => ({
     id: post.id,
-    title: post.title,
     userId: post.userId,
   }));
 };
 
-export const selectPostCardItem = (
-  data: PostFindByIdOutputPort,
-): PostCardItem => ({
+export const selectPostCardItem = (data: PostFindByIdOutputPort) => ({
   id: data.id,
   title: data.title,
   body: data.body,

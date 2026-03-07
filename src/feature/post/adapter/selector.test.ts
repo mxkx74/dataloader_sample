@@ -11,8 +11,8 @@ describe("selectPostListItems", () => {
     const result = selectPostListItems(input);
 
     expect(result).toEqual([
-      { id: 1, title: "タイトル 1", userId: 1 },
-      { id: 2, title: "タイトル 2", userId: 2 },
+      { id: 1, userId: 1 },
+      { id: 2, userId: 2 },
     ]);
   });
 
