@@ -41,7 +41,7 @@ const findPostByIdWithLoaderInteractor = async (
       const loader = getUserLoader();
       return safeAsync(loader.load(post.userId)).map((user) => ({
         ...post,
-        author: { id: user.id, name: user.name },
+        author: user,
       }));
     })
     .andThen(safeParse(postFindByIdOutputSchema));

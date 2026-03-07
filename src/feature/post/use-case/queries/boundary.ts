@@ -20,7 +20,12 @@ export const postFindByIdInputSchema = z.object({
 });
 
 export const postFindByIdOutputSchema = postListSchema.element.extend({
-  author: z.object({ id: z.number(), name: z.string() }),
+  author: z.object({
+    id: z.number(),
+    name: z.string(),
+    username: z.string(),
+    email: z.string(),
+  }),
 });
 
 export type PostFindByIdInputPort = z.infer<typeof postFindByIdInputSchema>;
