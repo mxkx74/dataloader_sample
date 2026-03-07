@@ -23,7 +23,7 @@ describe("findAllPosts", () => {
 });
 
 describe("findPostByIdWithLoader", () => {
-  it("DataLoader 経由で記事を取得できること", async () => {
+  it("DataLoader 経由で記事とユーザー情報を取得できること", async () => {
     const result = await findPostByIdWithLoader({ id: 1 });
 
     expect(result.isOk()).toBe(true);
@@ -33,6 +33,10 @@ describe("findPostByIdWithLoader", () => {
         title: expect.any(String),
         body: expect.any(String),
         userId: expect.any(Number),
+        author: {
+          id: expect.any(Number),
+          name: expect.any(String),
+        },
       });
     }
   });

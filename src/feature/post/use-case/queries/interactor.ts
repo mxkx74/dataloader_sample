@@ -2,6 +2,7 @@ import type { Result } from "neverthrow";
 
 import { findAllPosts as findAllPostsClient } from "@/models/resources/post/client";
 import { getPostLoader } from "@/models/resources/post/dataloader";
+import { getUserLoader } from "@/models/resources/user/dataloader";
 import { withInteractorOption } from "@/lib/withInteractorOption";
 import { safeAsync, safeParse } from "@/lib/neverThrowUtils";
 import type { Errors } from "@/lib/errors";
@@ -35,6 +36,13 @@ const findPostByIdWithLoaderInteractor = async (
     .asyncAndThen((parsed) => {
       const loader = getPostLoader();
       return safeAsync(loader.load(parsed.id));
+    })
+    .andThen((post) => {
+      const loader = getUserLoader();
+      return safeAsync(loader.load(post.userId)).map((user) => ({
+        ...post,
+        author: { id: user.id, name: user.name },
+      }));
     })
     .andThen(safeParse(postFindByIdOutputSchema));
 };

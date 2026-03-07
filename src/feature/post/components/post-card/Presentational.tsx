@@ -20,7 +20,7 @@ export function PostCardPresentational({ post }: Props) {
       <CardContent>
         <p className="text-sm text-muted-foreground">{post.body}</p>
         <p className="text-xs text-muted-foreground mt-2">
-          ユーザー ID: {post.userId}
+          投稿者: {post.author.name}
         </p>
       </CardContent>
     </Card>
