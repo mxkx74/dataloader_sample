@@ -11,7 +11,10 @@ const mockPosts: Post[] = Array.from({ length: 10 }, (_, index) => ({
 export const postHandlers = [
   http.get("https://jsonplaceholder.typicode.com/posts", ({ request }) => {
     const url = new URL(request.url);
-    const ids = url.searchParams.getAll("id").map(Number).filter(Boolean);
+    const ids = url.searchParams
+      .getAll("id")
+      .map(Number)
+      .filter((id) => !Number.isNaN(id));
 
     if (ids.length > 0) {
       const filtered = mockPosts.filter((post) => ids.includes(post.id));
