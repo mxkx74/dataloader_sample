@@ -1,6 +1,6 @@
 ---
 name: create-pull-request
-description: 現在の変更内容を元に、親ブランチとの同期を行った上で Pull Request を作成・レビュー依頼します。ユーザーからpull requestの作成指示があった際に使用します。TRIGGERS: pull request作成, PR作成, github, git, コードレビュー依頼
+description: "現在の変更内容を元に、親ブランチとの同期を行った上で Pull Request を作成・レビュー依頼します。ユーザーからpull requestの作成指示があった際に使用します。TRIGGERS: pull request作成, PR作成, github, git, コードレビュー依頼"
 ---
 
 # Create Pull Request Assistant

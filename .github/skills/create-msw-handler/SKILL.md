@@ -1,6 +1,6 @@
 ---
 name: create-msw-handler
-description: OpenAPI定義から型安全なMSW v2ハンドラーとモックデータを生成します。テスト用のモックが必要な時に使用します。 TRIGGERS : モック作成, MSWハンドラー生成, create msw handler, mock api, Domain data.
+description: "OpenAPI定義から型安全なMSW v2ハンドラーとモックデータを生成します。テスト用のモックが必要な時に使用します。 TRIGGERS : モック作成, MSWハンドラー生成, create msw handler, mock api, Domain data."
 ---
 
 # MSW Mock Architect
