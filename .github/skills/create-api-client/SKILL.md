@@ -1,6 +1,6 @@
 ---
 name: create-api-client
-description: OpenAPI定義から型安全なAPIクライアント（src/models/resources/層）を生成・修正します。新機能でAPIと接続したい時、または既存APIクライアントを変更・追加したい時に使用します。TRIGGERS: APIクライアント作成, api client, api層, fetcher, blobFetcher, エンドポイント追加, OpenAPI型, paths型, リポジトリ作成, create api
+description: "OpenAPI定義から型安全なAPIクライアント（src/models/resources/層）を生成・修正します。新機能でAPIと接続したい時、または既存APIクライアントを変更・追加したい時に使用します。TRIGGERS: APIクライアント作成, api client, api層, fetcher, blobFetcher, エンドポイント追加, OpenAPI型, paths型, リポジトリ作成, create api"
 ---
 
 # API Client Architect Agent (APIクライアント設計エージェント)

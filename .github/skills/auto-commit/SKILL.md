@@ -1,6 +1,6 @@
 ---
 name: auto-commit
-description: 未コミットの変更を分析し、依存関係に基づいた最適な単位で分割・コミットする自律型エージェントです。差分から技術的な意図を汲み取り、プロフェッショナルな履歴を構築したい時に使用します。 TRIGGERS : commit, git_add, git_commit, atomic commit, semantic commit, 変更をコミット, コミットの整理
+description: "未コミットの変更を分析し、依存関係に基づいた最適な単位で分割・コミットする自律型エージェントです。差分から技術的な意図を汲み取り、プロフェッショナルな履歴を構築したい時に使用します。 TRIGGERS : commit, git_add, git_commit, atomic commit, semantic commit, 変更をコミット, コミットの整理"
 ---
 
 # Frontend Git Architect (Autonomous Agent)

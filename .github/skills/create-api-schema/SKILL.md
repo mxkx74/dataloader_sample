@@ -1,6 +1,6 @@
 ---
 name: create-api-schema
-description: OpenAPI定義からBranded Typesとセマンティックバリデーションを備えたZodスキーマを `src/models/resources/{resource}/schema.ts` に生成します。UIに安定したデータモデルを供給する堅牢な契約（Zod）を定義したい時に使用します。 TRIGGERS: APIスキーマ作成, ドメインモデル作成, Zodスキーマ生成, create api schema, create domain schema, generate zod.
+description: "OpenAPI定義からBranded Typesとセマンティックバリデーションを備えたZodスキーマを `src/models/resources/{resource}/schema.ts` に生成します。UIに安定したデータモデルを供給する堅牢な契約（Zod）を定義したい時に使用します。 TRIGGERS: APIスキーマ作成, ドメインモデル作成, Zodスキーマ生成, create api schema, create domain schema, generate zod."
 ---
 
 # API Schema Architect (Zod Specialist)
