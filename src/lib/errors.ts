@@ -1,4 +1,4 @@
-import z, { ZodError } from 'zod';
+import { z, ZodError } from 'zod';
 
 export type Errors = NetworkError | JsonParseError | HttpError | z.ZodError | Error;
 

@@ -1,4 +1,4 @@
-import type z from 'zod';
+import type { z } from 'zod';
 
 import { buildQueryString } from './buildQueryString';
 import { HttpError, JsonParseError, NetworkError } from './errors';

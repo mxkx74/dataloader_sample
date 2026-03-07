@@ -19,12 +19,10 @@ export const withCallbacks = <
   callbacks: Callbacks<T, R>
 ) => {
   return async (...args: Args) => {
-    const promise = fn(...args);
-
     const reference = callbacks.onStart?.();
-    const result = await promise;
+    const result = await fn(...args);
 
-    if (reference) {
+    if (reference !== undefined) {
       callbacks.onEnd?.(reference);
     }
 

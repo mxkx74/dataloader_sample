@@ -11,7 +11,7 @@ import { serializeError } from './errors';
  * @returns (data: unknown) => Result<T, ZodError>
  * @example
  * // 配列の各要素を検証する場合
- * const results = ok(1).andThen(safeParse(userSchema)));
+ * const results = ok(1).andThen(safeParse(userSchema));
  */
 export function safeParse<T>(schema: z.ZodSchema<T>): (data: unknown) => Result<T, z.ZodError>;
 
