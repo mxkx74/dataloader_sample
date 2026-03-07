@@ -55,7 +55,7 @@ describe('withCallbacks', () => {
       await wrappedFn();
 
       expect(onStart).toHaveBeenCalledTimes(1);
-      expect(callOrder).toEqual(['fn', 'onStart']);
+      expect(callOrder).toEqual(['onStart', 'fn']);
     });
   });
 
@@ -84,7 +84,7 @@ describe('withCallbacks', () => {
       expect(onEnd).not.toHaveBeenCalled();
     });
 
-    it('onStartが0を返した場合、onEndは呼ばれない（falsyな値）', async () => {
+    it('onStartが0を返した場合、onEndは呼ばれる（undefinedでないため）', async () => {
       const fn = vi.fn().mockResolvedValue(createSuccessResult());
       const onStart = vi.fn().mockReturnValue(0);
       const onEnd = vi.fn();
@@ -92,7 +92,7 @@ describe('withCallbacks', () => {
       const wrappedFn = withCallbacks(fn, { onStart, onEnd });
       await wrappedFn();
 
-      expect(onEnd).not.toHaveBeenCalled();
+      expect(onEnd).toHaveBeenCalledWith(0);
     });
 
     it('onEnd は関数実行後に呼ばれる', async () => {
@@ -112,7 +112,7 @@ describe('withCallbacks', () => {
       const wrappedFn = withCallbacks(fn, { onStart, onEnd });
       await wrappedFn();
 
-      expect(callOrder).toEqual(['fn', 'onStart', 'onEnd']);
+      expect(callOrder).toEqual(['onStart', 'fn', 'onEnd']);
     });
   });
 
@@ -184,7 +184,7 @@ describe('withCallbacks', () => {
 
       await wrappedFn();
 
-      expect(callOrder).toEqual(['fn', 'onStart', 'onEnd', 'onSuccess']);
+      expect(callOrder).toEqual(['onStart', 'fn', 'onEnd', 'onSuccess']);
     });
 
     it('失敗時: onStart -> fn -> onEnd -> onError の順で呼ばれる', async () => {
@@ -206,7 +206,7 @@ describe('withCallbacks', () => {
 
       await wrappedFn();
 
-      expect(callOrder).toEqual(['fn', 'onStart', 'onEnd', 'onError']);
+      expect(callOrder).toEqual(['onStart', 'fn', 'onEnd', 'onError']);
     });
 
     it('コールバックを全て省略しても動作する', async () => {
