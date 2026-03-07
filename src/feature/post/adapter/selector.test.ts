@@ -23,8 +23,14 @@ describe("selectPostListItems", () => {
 });
 
 describe("selectPostCardItem", () => {
-  it("Post を PostCardItem に変換できること", () => {
-    const input = { userId: 1, id: 1, title: "タイトル 1", body: "本文 1" };
+  it("Post を PostCardItem に変換できること（author 情報を id と name にフィルタリングすること）", () => {
+    const input = {
+      userId: 1,
+      id: 1,
+      title: "タイトル 1",
+      body: "本文 1",
+      author: { id: 1, name: "ユーザー 1", username: "user1", email: "user1@example.com" },
+    };
 
     const result = selectPostCardItem(input);
 
@@ -33,6 +39,7 @@ describe("selectPostCardItem", () => {
       title: "タイトル 1",
       body: "本文 1",
       userId: 1,
+      author: { id: 1, name: "ユーザー 1" },
     });
   });
 });

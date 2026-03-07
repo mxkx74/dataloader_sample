@@ -16,4 +16,8 @@ export const selectPostCardItem = (data: PostFindByIdOutputPort) => ({
   title: data.title,
   body: data.body,
   userId: data.userId,
+  author: {
+    id: data.author.id,
+    name: data.author.name,
+  },
 });
