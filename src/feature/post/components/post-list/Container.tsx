@@ -7,7 +7,7 @@ export async function PostListContainer() {
   const items = selectPostListItems(data);
 
   return (
-    <ul className="grid gap-4 list-none p-0 m-0" role="list">
+    <ul className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 list-none p-0 m-0" role="list">
       {items.map((item) => (
         <li key={item.id}>
           <PostCardContainer postId={item.id} />
