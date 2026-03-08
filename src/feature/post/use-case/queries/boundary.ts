@@ -8,7 +8,6 @@ export const postFindAllInputSchema = z.object({
 export const postFindAllOutputSchema = z.array(
   postListSchema.element.pick({
     id: true,
-    userId: true,
   }),
 );
 

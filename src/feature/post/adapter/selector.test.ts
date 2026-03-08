@@ -10,10 +10,7 @@ describe("selectPostListItems", () => {
 
     const result = selectPostListItems(input);
 
-    expect(result).toEqual([
-      { id: 1, userId: 1 },
-      { id: 2, userId: 2 },
-    ]);
+    expect(result).toEqual([{ id: 1 }, { id: 2 }]);
   });
 
   it("空の配列を渡すと空の配列を返すこと", () => {
