@@ -7,7 +7,6 @@ import type {
 export const selectPostListItems = (data: PostFindAllOutputPort) => {
   return data.map((post) => ({
     id: post.id,
-    userId: post.userId,
   }));
 };
 

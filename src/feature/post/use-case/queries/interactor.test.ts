@@ -10,7 +10,6 @@ describe("findAllPosts", () => {
       expect(result.value.length).toBeGreaterThan(0);
       expect(result.value[0]).toMatchObject({
         id: expect.any(Number),
-        userId: expect.any(Number),
       });
     }
   });
